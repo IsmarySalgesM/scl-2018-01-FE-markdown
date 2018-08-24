@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "creando libreria",
   "main": "index.js",
-  "bin" : "./index.js",
+  "bin" : {
+    "libreriajs" : "./index.js"
+  },
   "scripts": {
     "test": "jest"
   },
