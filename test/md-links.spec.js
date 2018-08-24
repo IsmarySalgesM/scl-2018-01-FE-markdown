@@ -20,7 +20,7 @@ test('Se espera true, para string', () => {
 });
 
 const strArgs = require('./../src/js/md-links').strArgs;
-test('Se espera true, para string', () => {
+test('Se espera true, ruta de usuario', () => {
   expect(strArgs).toBeTruthy();
 });
 
@@ -29,4 +29,7 @@ test('Se espera true, para archivos md', () => {
   expect(typeFile).toBeTruthy();
 });
 
-
+const mdlinks = require('./../src/js/md-links').mdlinks;
+test('Se espera ser una function', () => {
+  expect(mdlinks).toBeTruthy();
+});

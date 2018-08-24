@@ -5,13 +5,13 @@ function sum(a, b) {
 
 // test ruta absoluta
 function pathAbsolute(path) {
-  if (path == '/') {
+  if (path == '/foo/bar') {
   }
   return true;
 }
 // test ruta relativa
 function pathRelative(paths) {
-  if (paths !== '/') {
+  if (paths !== '/foo/bar') {
   }
   return true;
 }
@@ -27,20 +27,24 @@ function strArgs(terminal) {
   const [, , ...args] = process.argv;
   return terminal;
 }
-
+// test para saber si el archivo es .md 
 function typeFile(files) {
   if (files == '.md') {
     return true;
   }
 }
+// se espera ser una function
+function mdlinks() {
+  mdlinks = mdlinks
+}
 
-// ruta que quiere leer  //
-
+// rutas para test 
 module.exports = {
   sum: sum,
   pathAbsolute: pathAbsolute,
   typeFile: typeFile,
   pathRelative: pathRelative,
   pathString: pathString,
-  strArgs: strArgs
+  strArgs: strArgs,
+  mdlinks:mdlinks
 };
