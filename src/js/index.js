@@ -1,7 +1,16 @@
 #! /usr/bin/env node
-
+const markdownLinkExtractor = require('./../../src/js/prueba');
 const path = require('path');
 const fs = require('fs');
+
+// buscamos el archivo 
+takePath = (ruta) => {
+  fs.readFile(`${ruta}`, 'utf-8', (err, data) => {
+    if (err) throw err;
+    console.log(data);
+    markdownLinkExtractor(data);
+  });
+}
 
 //operacion de esparcir
 const [, , ...prop] = process.argv;
@@ -14,11 +23,7 @@ if (!path.isAbsolute(absPath)) {
   //console.log(prueba);
   takePath(prueba);
 }
- // buscamos el archivo 
-function takePath(ruta) {
-    fs.readFile(`${ruta}`, 'utf-8', (err, data) => {
-      if (err) throw err;
-      console.log(data);
-    });
-}
+
+
+
 
