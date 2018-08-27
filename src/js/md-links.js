@@ -5,13 +5,13 @@ function sum(a, b) {
 
 // test ruta absoluta
 function pathAbsolute(path) {
-  if (path == '/foo/bar') {
+  if (path == 'https://www') {
   }
   return true;
 }
 // test ruta relativa
 function pathRelative(paths) {
-  if (paths !== '/foo/bar') {
+  if (paths == '/foo/bar') {
   }
   return true;
 }

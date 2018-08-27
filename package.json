@@ -2,9 +2,9 @@
   "name": "libreriajs",
   "version": "0.0.1",
   "description": "creando libreria",
-  "main": "index.js",
+  "main": "./src/js/index.js",
   "bin" : {
-    "libreriajs" : "./index.js"
+    "libreriajs" : "./src/js/index.js"
   },
   "scripts": {
     "test": "jest"
