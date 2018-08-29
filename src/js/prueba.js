@@ -9,11 +9,12 @@ function takePath(filePath) {
             if (error) {
                 return reject(error);
             }
+            let path = filePath.map
+           // console.log(path);
             let links = markdownLinkExtractor(data)
             let promises = []
             links.forEach(function (url) {
                 promises.push(fetch(url.href)
-               
                     .then(function (response) {
                          //console.log(response)
                          url.status = response.status;
@@ -21,8 +22,8 @@ function takePath(filePath) {
                         return url
                     })
                     .catch(function (err) {
-                        url.status = "fail";
-                        url.statusOk = "fail";
+                        url.status = "fail" + err
+                        url.statusOk = "fail" + err;
                         return url
                     }))
             });

@@ -1,6 +1,7 @@
 #! /usr/bin/env node
 const takePath = require('./../../src/js/prueba');
 const path = require('path');
+const colors = require('colors');
 
 
 
@@ -19,7 +20,7 @@ function mdlinks() {
   let concaPath = path.join(absPathtry, absPath);
       takePath(concaPath).then((values)=>{
         values.forEach(element => {
-       let linksContent = `Link : ${element.href} Titulo:${element.title} Status:${element.status} StatusOk:${element.statusOk}`
+       let linksContent = `Link : ${colors.blue(element.href)} Titulo:${colors.white(element.title)} Status:${colors.red(element.status)} StatusOk:${colors.red(element.statusOk)}`
         console.log(linksContent) 
         });
         
