@@ -13,19 +13,23 @@ function takePath(filePath) {
             let promises = []
             links.forEach(function (url) {
                 promises.push(fetch(url.href)
+               
                     .then(function (response) {
-                        url.status = response.status;
+                         //console.log(response)
+                         url.status = response.status;
+                         url.statusOk = response.statusText
                         return url
                     })
                     .catch(function (err) {
                         url.status = "fail";
+                        url.statusOk = "fail";
                         return url
                     }))
             });
             Promise.all(promises).then((values) => {
                 resolve(links);
             }).catch((err) => {
-
+            console.log(err);
             })
 
         });
@@ -34,7 +38,7 @@ function takePath(filePath) {
 
 
 
-function markdownLinkExtractor(markdown, url) {
+function markdownLinkExtractor(markdown) {
     const links = [];
 
     const renderer = new Marked.Renderer();
@@ -52,7 +56,7 @@ function markdownLinkExtractor(markdown, url) {
         });
     };
 
-    renderer.image = function (href, title, text) {
+    renderer.image = function (href, text, title) {
         // Remove image size at the end, e.g. ' =20%x50'
         href = href.replace(/ =\d*%?x\d*%?$/, '');
         links.push({

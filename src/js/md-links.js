@@ -5,7 +5,7 @@ function sum(a, b) {
 
 // test ruta absoluta
 function pathAbsolute(path) {
-  if (path == 'https://www') {
+  if (path !== '/foo/bar') {
   }
   return true;
 }
