@@ -1,24 +1,40 @@
 const Marked = require('marked');
 const fs = require('fs');
+const fetch = require('node-fetch');
+
 
 function takePath(filePath) {
     return new Promise((resolve, reject) => {
         fs.readFile(filePath, 'utf-8', (error, data) => {
             if (error) {
-                return reject(error);//Sabemos que hay un error, así que rechazamos la promesa
-                //Si hay error, también nos aseguramos con return de no seguir ejecutando nada más en esta función
+                return reject(error);
             }
+            let links = markdownLinkExtractor(data)
+            let promises = []
+            links.forEach(function (url) {
+                promises.push(fetch(url.href)
+                    .then(function (response) {
+                        url.status = response.status;
+                        return url
+                    })
+                    .catch(function (err) {
+                        url.status = "fail";
+                        return url
+                    }))
+            });
+            Promise.all(promises).then((values) => {
+                resolve(links);
+            }).catch((err) => {
 
-            markdownLinkExtractor(data)
-            
-            return resolve(data); //En caso de que no haya error resolvemos la promesa con los datos que recibimos en el callback
+            })
+
         });
     });
 };
 
 
 
-function markdownLinkExtractor(markdown) {
+function markdownLinkExtractor(markdown, url) {
     const links = [];
 
     const renderer = new Marked.Renderer();
@@ -31,22 +47,24 @@ function markdownLinkExtractor(markdown) {
     renderer.link = function (href, text, title) {
         links.push({
             href: href,
-            text: text,
+            //  text: text,
             title: title,
         });
     };
+
     renderer.image = function (href, title, text) {
         // Remove image size at the end, e.g. ' =20%x50'
         href = href.replace(/ =\d*%?x\d*%?$/, '');
         links.push({
             href: href,
-            text: text,
+            //   text: text,
             title: title,
         });
     };
+
     Marked(markdown, { renderer: renderer });
-    console.log(links);
+    //   console.log(links);
     return links;
-};
+}
 
 module.exports = takePath;

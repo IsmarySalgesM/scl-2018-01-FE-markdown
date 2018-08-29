@@ -12,12 +12,21 @@ let absPath = prop[0]
 
 
 if (!path.isAbsolute(absPath)) {
-  let absPathtry = process.cwd(absPath); // ubica la carpeta de directorio
-  let prueba = path.join(absPathtry, prop[0]); // une carpeta directorio con la busqueda del usuario
-  let options = {};
-  if (prop.includes('--validate')) options.validate = true;
-  takePath(prueba);
+  mdlinks()
 }
 
-
+function mdlinks() {
+  let absPathtry = process.cwd(absPath); // ubica la carpeta de directorio
+  let prueba = path.join(absPathtry, absPath);
+      takePath(prueba).then((values)=>{
+        console.log(values)
+      })
+}
+      //forEach((elemento, index)=>{})
+   // }).catch((error) => {
+  //    console.error("Error > " + error); 
+  //  })
+  
+  //let options = {};
+  //if (prop.includes('--validate')) options.validate = true;
 
