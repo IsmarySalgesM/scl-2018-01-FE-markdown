@@ -24,7 +24,7 @@ function pathString(str) {
 }
 // test para entrar a un archivo de la terminal
 function strArgs(terminal) {
-  const [, , ...args] = process.argv;
+  const [, , ...prop] = process.argv;
   return terminal;
 }
 // test para saber si el archivo es .md 

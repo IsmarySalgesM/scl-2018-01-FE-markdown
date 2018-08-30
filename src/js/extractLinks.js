@@ -3,13 +3,12 @@ const fs = require('fs');
 const fetch = require('node-fetch');
 
 
-function takePath(filePath) {
-    return new Promise((resolve, reject) => {
+function takePath(filePath) { // la funcion es sincrona linea a linea
+    return new Promise((resolve, reject) => { // promesa es asincrona llama callback
         fs.readFile(filePath, 'utf-8', (error, data) => {
             if (error) {
                 return reject(error);
             }
-            let path = filePath.map
            // console.log(path);
             let links = markdownLinkExtractor(data)
             let promises = []
@@ -18,16 +17,17 @@ function takePath(filePath) {
                     .then(function (response) {
                          //console.log(response)
                          url.status = response.status;
-                         url.statusOk = response.statusText
+                         url.statusOk = response.statusText;
+                         url.file = filePath;
                         return url
                     })
                     .catch(function (err) {
-                        url.status = "fail" + err
+                        url.status = "fail" + err;
                         url.statusOk = "fail" + err;
                         return url
                     }))
             });
-            Promise.all(promises).then((values) => {
+            Promise.all(promises).then((values) => {// retorno de promesa con los resultados// 
                 resolve(links);
             }).catch((err) => {
             console.log(err);

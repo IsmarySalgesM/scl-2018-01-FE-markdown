@@ -20,7 +20,7 @@ function mdlinks() {
   let concaPath = path.join(absPathtry, absPath);
   takePath(concaPath).then((values) => {
     values.forEach(element => {
-      let linksContent = `Link : ${colors.blue(element.href)} Titulo:${colors.yellow(element.title)} Status:${colors.red(element.status)} StatusOk:${colors.red(element.statusOk)}`
+      let linksContent = `Carpeta:${colors.green(element.file)} Link : ${colors.blue(element.href)} Titulo:${colors.yellow(element.title)} Status:${colors.red(element.status)} StatusOk:${colors.red(element.statusOk)}`
       console.log(linksContent)
     });
 
