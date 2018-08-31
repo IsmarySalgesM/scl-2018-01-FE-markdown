@@ -17,7 +17,7 @@ Retorna a través de una promesa con un arreglo  de objetos, cada objeto represe
 ### Test
 Test implementados con Jest con 65% de cobertura
 
-### Planeación
+### Herramienta de Planificacíon
 [Trello](https://trello.com/b/ZtZMrnZO/markdown)
 
 ### Autora
