@@ -37,14 +37,21 @@ function typeFile(files) {
 function mdlinks() {
   mdlinks = mdlinks
 }
+function takePath(filePath) { // la funcion es sincrona linea a linea
+    fs.readFile(filePath, 'utf-8', (error, data) => {
+      if (err) throw error;
+      console.log(data);
+})
+}
 
-// rutas para test 
-module.exports = {
-  sum: sum,
-  pathAbsolute: pathAbsolute,
-  typeFile: typeFile,
-  pathRelative: pathRelative,
-  pathString: pathString,
-  strArgs: strArgs,
-  mdlinks:mdlinks
-};
+      // rutas para test 
+      module.exports = {
+        sum: sum,
+        pathAbsolute: pathAbsolute,
+        typeFile: typeFile,
+        pathRelative: pathRelative,
+        pathString: pathString,
+        strArgs: strArgs,
+        mdlinks: mdlinks,
+        takePath:takePath
+      };

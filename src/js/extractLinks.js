@@ -37,8 +37,6 @@ function takePath(filePath) { // la funcion es sincrona linea a linea
     });
 };
 
-
-
 function markdownLinkExtractor(markdown) {
     const links = [];
 

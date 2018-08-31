@@ -1,4 +1,4 @@
-const sum = require('../test/md-links').sum;
+const sum = require('../test/md-links');
 
 test('adds 1 + 2 to equal 3', () => {
   expect(sum(1, 2)).toBe(3);
@@ -32,4 +32,14 @@ test('Se espera true, para archivos md', () => {
 const mdlinks = require('../test/md-links').mdlinks;
 test('Se espera ser una function', () => {
   expect(mdlinks).toBeTruthy();
-});
+
+const takePath = require('../test/md-links').takePath;
+  test('Debería leer el archivo'), (done) => {
+  takePath(fileFind, (error, result) => {
+        expect(result).toBe(1);
+        done();
+    });
+}
+})
+
+

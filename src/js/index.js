@@ -12,6 +12,7 @@ const [, , ...prop] = process.argv;
 let absPath = prop[0]
 
 if (!path.isAbsolute(absPath)) {
+  console.log("Por favor, ubique la ruta correcta");
   mdlinks()
 }
 
