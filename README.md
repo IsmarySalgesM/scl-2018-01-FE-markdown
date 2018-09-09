@@ -8,7 +8,7 @@ Debes tener instalado previamente NodeJs en tu computador.
 # Instalación 
 Lo primero que debemos hacer es instalar nuestra librería con :
 
-$ npm i libreriajs
+ `$ npm i libreriajs`
 
 ###### Valor de retorno
 
