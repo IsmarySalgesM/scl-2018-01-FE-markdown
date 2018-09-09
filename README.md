@@ -1,6 +1,15 @@
 # Markdown Libreriajs
 Markdown Libreriajs ayuda a ver los enlaces que hay en un archivo md.
 
+
+# Requisitos
+Debes tener instalado previamente NodeJs en tu computador.
+
+# Instalación 
+Lo primero que debemos hacer es instalar nuestra librería con :
+
+$ npm i libreriajs
+
 ###### Valor de retorno
 
 Retorna a través de una promesa con un arreglo  de objetos, cada objeto representa un link y contiene las siguientes informaciones:
